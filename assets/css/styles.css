@@ -1,0 +1,312 @@
+@font-face {
+    font-family: 'Ballet';
+    src: url('./assets/fonts/Ballet-Regular-VariableFont_opsz.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ballet', Arial, sans-serif; /* Appliquer la nouvelle police */
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #c6c4ac;
+}
+
+/* Slideshow */
+.image-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Vitesse de transition plus rapide */
+}
+
+.image-container img.active {
+    opacity: 1;
+}
+
+/* Barre latérale des commentaires */
+.sidebar-container {
+    width: 100%;
+    background-color: #c6c4ac;
+    padding: 20px;
+    overflow-y: auto;
+    background-size: cover; /* Couvrir tout le conteneur */
+}
+
+.sidebar-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.sidebar-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-container li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: white;
+    border-left: 5px solid gold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-container a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: gold;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.sidebar-container a:hover {
+    background: #FFD700;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* Réduire l'opacité pour un effet glassmorphism */
+    -webkit-backdrop-filter: blur(10px); /* Ajouter un flou pour l'effet glassmorphism */
+    backdrop-filter: blur(10px); /* Ajouter un flou pour l'effet glassmorphism */
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.8); /* Réduire l'opacité pour un effet glassmorphism */
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-family: 'Ballet', Arial, sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px; /* Diminuer la taille du header */
+    background-color: #c6c4ac;
+    color: white;
+    position: relative; /* Ajouter cette ligne */
+}
+
+.logo img {
+    width: 50px; /* Réduire la taille du logo */
+    height: 50px; /* Assurer que le logo est carré */
+    border-radius: 50%; /* Rendre le logo rond */
+}
+
+.header-center {
+    position: absolute; /* Ajouter cette ligne */
+    left: 50%; /* Ajouter cette ligne */
+    transform: translateX(-50%); /* Ajouter cette ligne */
+}
+
+.header-center img {
+    width: 200px; /* Ajuster la taille du logo textname */
+    height: auto;
+}
+
+.login-button {
+    margin-left: auto;
+}
+
+.login-btn {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px; /* Diminuer la taille du bouton */
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #555;
+}
+
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+/* Formulaires de commentaires */
+form {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFD700;
+}
+
+/* Boutons de retour et de déconnexion */
+.back-btn, .logout-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover, .logout-btn:hover {
+    background-color: #555;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 0 4px;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+.pagination a.active {
+    background-color: #666;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ccc;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .image-container {
+        width: 75%;
+    }
+
+    .sidebar-container {
+        width: 25%;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar-container {
+        order: 2; /* Placer les commentaires en bas de la page */
+    }
+
+    .image-container {
+        order: 1; /* Placer le slideshow en haut de la page */
+    }
+
+    .login-btn {
+        padding: 2px 4px; /* Réduire davantage la taille du bouton sur petit écran */
+        font-size: 12px; /* Réduire davantage la taille de la police du bouton sur petit écran */
+    }
+
+    .logo img {
+        width: 30px; /* Réduire davantage la taille du logo sur petit écran */
+        height: 30px; /* Assurer que le logo est carré sur petit écran */
+    }
+
+    .logout-btn {
+        padding: 2px 4px; /* Réduire davantage la taille du bouton de déconnexion sur petit écran */
+        font-size: 12px; /* Réduire davantage la taille de la police du bouton de déconnexion sur petit écran */
+    }
+}

@@ -1,0 +1,124 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #faf3e0; /* Fond beige clair */
+    color: #5a4a42; /* Texte marron */
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d4af37; /* Doré */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .back-btn, header .logout-btn {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #b8860b; /* Doré foncé */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .back-btn:hover, header .logout-btn:hover {
+    background-color: #8b6914; /* Doré plus foncé */
+}
+
+h2 {
+    color: #d4af37; /* Doré */
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d4af37; /* Doré */
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #d4af37; /* Doré */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #b8860b; /* Doré foncé */
+}
+
+ul {
+    list-style: none;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+li p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+li small {
+    display: block;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+li a {
+    color: #d4af37; /* Doré */
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+li a:hover {
+    color: #b8860b; /* Doré foncé */
+}
+
+/* Formulaire de modification intégré */
+.edit-form {
+    display: none;
+    margin-top: 20px;
+}
+
+.edit-form.active {
+    display: block;
+}
